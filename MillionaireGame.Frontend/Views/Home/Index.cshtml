@@ -3,5 +3,20 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<div class="row">
+    <div class="col-md-10 col-md-offset-1">
+        <div class="jumbotron custom-jumbotron">
+            <h2>Вас вітає гра "Хто хоче стати мільйонером?"!</h2>
+            <p>Для початку гри введіть своє ім'я та натисніть "Почати гру".</p>
+        </div>
+        <form action="~/Controllers/" method="post" class="form-horizontal">
+            <div class="form-group">
+                <label for="PlayerName" class="control-label col-md-2">Ваше ім'я:</label>
+                <input type="text" id="PlayerName" name="PlayerName" class="form-control col-md-4" />
+                <input type="submit" value="Почати гру! " id="btn-name" class="btn btn-success col-md-2" />
+            </div>
+                
+        </form>
+    </div>
+</div>
 
