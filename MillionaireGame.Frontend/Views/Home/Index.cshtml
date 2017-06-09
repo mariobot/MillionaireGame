@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="row">
+    <div class="col-md-10 col-md-offset-1">
+        <div class="jumbotron custom-jumbotron">
+            <h2>Вас вітає гра "Хто хоче стати мільйонером?"!</h2>
+            <p>Для початку гри введіть своє ім'я та натисніть "Почати гру".</p>
+        </div>
+        <form action="~/Home/Game" method="post" class="form-horizontal">
+            <div class="form-group">
+                <label for="PlayerName" class="control-label col-md-2 col-sm-2 col-xs-3">Ваше ім'я:</label>
+                <input type="text" id="PlayerName" name="PlayerName" class="form-control col-md-4 col-sm-3 col-xs-3" />
+                <input type="submit" value="Почати гру! " id="btn-name" class="btn btn-success col-md-offset-1 col-md-2 col-sm-2 col-xs-3 col-sm-offset-1" />
+            </div>
+                
+        </form>
+    </div>
+</div>
+
