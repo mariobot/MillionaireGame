@@ -17,7 +17,7 @@ namespace MillionaireGame.Frontend.Controllers
         [HttpPost]
         public ActionResult Game(string PlayerName)
         {
-            ViewBag.PlayerName = PlayerName;
+            Session["name"] = PlayerName;
             return View();
         }
     }
