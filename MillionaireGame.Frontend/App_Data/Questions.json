@@ -1,0 +1,25 @@
+﻿{
+  "questions": [
+    {
+      "question": "Хто заснував компанію Microsoft?",
+      "answers": [
+        {
+          "answer": "Пол Ален",
+          "correct": false
+        },
+        {
+          "answer": "Білл Гейтс",
+          "correct": true
+        },
+        {
+          "answer": "Ларрі Пейдж",
+          "correct": false
+        },
+        {
+          "answer": "Стів Джобс",
+          "correct": false
+        }
+      ]
+    }
+  ]
+}
