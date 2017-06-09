@@ -13,5 +13,12 @@ namespace MillionaireGame.Frontend.Controllers
         {
             return View();
         }
+
+        [HttpPost]
+        public ActionResult Game(string PlayerName)
+        {
+            ViewBag.PlayerName = PlayerName;
+            return View();
+        }
     }
 }
