@@ -129,14 +129,21 @@
   <ItemGroup>
     <Content Include="Views\web.config" />
     <Content Include="packages.config" />
+<<<<<<< HEAD
     <Content Include="Views\_ViewStart.cshtml" />
+=======
+     <Content Include="Views\_ViewStart.cshtml" />
+>>>>>>> some merge fixes)
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+<<<<<<< HEAD
     <Content Include="Views\Home\Game.cshtml" />
+=======
+>>>>>>> some merge fixes)
     <Content Include="App_Data\Questions.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
