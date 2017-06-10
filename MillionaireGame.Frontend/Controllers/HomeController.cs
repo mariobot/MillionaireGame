@@ -6,14 +6,19 @@ using System.Web;
 using System.Web.Hosting;
 using System.Web.Mvc;
 using MillionaireGame.Entities;
+using MillionaireGame.Repositories.Abstract;
 
 namespace MillionaireGame.Frontend.Controllers
 {
     public class HomeController : Controller
     {
         // GET: Home
-        private readonly JsonQuestionRepository _repo =
-            new JsonQuestionRepository(HostingEnvironment.MapPath("~/App_Data/Questions.json"));
+        private readonly IQuestionRepository _questionRepository;
+
+        public HomeController(IQuestionRepository questionRepo)
+        {
+            _questionRepository = questionRepo;
+        }
 
         public ActionResult Index()
         {
@@ -24,7 +29,7 @@ namespace MillionaireGame.Frontend.Controllers
         public ActionResult Game(string PlayerName)
         {
             Session["name"] = PlayerName;
-            var questions = _repo.Questions;
+            var questions = _questionRepository.Questions;
             return View(questions);
         }
     }
