@@ -1,25 +1,23 @@
-﻿{
-  "questions": [
-    {
-      "question": "Хто заснував компанію Microsoft?",
-      "answers": [
-        {
-          "answer": "Пол Ален",
-          "correct": false
-        },
-        {
-          "answer": "Білл Гейтс",
-          "correct": true
-        },
-        {
-          "answer": "Ларрі Пейдж",
-          "correct": false
-        },
-        {
-          "answer": "Стів Джобс",
-          "correct": false
-        }
-      ]
-    }
-  ]
-}
+﻿[
+  {
+    "title": "Хто заснував компанію Microsoft?",
+    "answers": [
+      {
+        "title": "Пол Ален",
+        "correct": false
+      },
+      {
+        "title": "Білл Гейтс",
+        "correct": true
+      },
+      {
+        "title": "Ларрі Пейдж",
+        "correct": false
+      },
+      {
+        "title": "Стів Джобс",
+        "correct": false
+      }
+    ]
+  }
+]

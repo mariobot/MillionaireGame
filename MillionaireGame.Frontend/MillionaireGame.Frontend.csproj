@@ -129,7 +129,7 @@
   <ItemGroup>
     <Content Include="Views\web.config" />
     <Content Include="packages.config" />
-     <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -146,9 +146,17 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
     <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MillionaireGame.Entities\MillionaireGame.Entities.csproj">
+      <Project>{fc5333f9-ac8a-4cbb-875f-56c2c47f1c51}</Project>
+      <Name>MillionaireGame.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MillionaireGame.Repositories\MillionaireGame.Repositories.csproj">
+      <Project>{8C233BBD-1498-4C74-BE99-567193A0A3AD}</Project>
+      <Name>MillionaireGame.Repositories</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
