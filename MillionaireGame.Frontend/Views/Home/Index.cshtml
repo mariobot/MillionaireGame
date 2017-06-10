@@ -1,4 +1,4 @@
-﻿
+﻿@using System.Web.Optimization
 @{
     ViewBag.Title = "Index";
 }
@@ -9,7 +9,7 @@
             <h2>Вас вітає гра "Хто хоче стати мільйонером?"!</h2>
             <p>Для початку гри введіть своє ім'я та натисніть "Почати гру".</p>
         </div>
-        <form action="~/Home/Game" method="post" class="form-horizontal">
+        <form action="~/Home/Game" method="post" class="form-horizontal" id="playerNameForm">
             <div class="form-group">
                 <label for="PlayerName" class="control-label col-md-2 col-sm-2 col-xs-3">Ваше ім'я:</label>
                 <input type="text" id="PlayerName" name="PlayerName" class="form-control col-md-4 col-sm-3 col-xs-3" />
@@ -19,4 +19,6 @@
         </form>
     </div>
 </div>
+@Scripts.Render("~/bundles/jqueryval")
+@Scripts.Render("~/bundles/nameval")
 

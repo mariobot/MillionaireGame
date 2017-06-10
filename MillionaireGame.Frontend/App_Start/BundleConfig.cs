@@ -22,6 +22,10 @@ namespace MillionaireGame.Frontend.App_Start
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+
+            //custom player name validation script
+            bundles.Add(new ScriptBundle("~/bundles/nameval").Include(
+                    "~/Scripts/Custom/name-validator.js"));
         }
     }
 }
