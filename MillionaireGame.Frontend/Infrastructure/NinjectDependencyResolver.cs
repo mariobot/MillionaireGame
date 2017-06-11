@@ -34,6 +34,8 @@ namespace MillionaireGame.Frontend.Infrastructure
         {
             _kernel.Bind<IQuestionRepository>().To<JsonQuestionRepository>()
                 .WithConstructorArgument("filename", HostingEnvironment.MapPath(ConfigurationManager.AppSettings["QuestionsPath"]));
+            _kernel.Bind<IGameStepRepository>().To<JsonGameStepRepository>()
+                .WithConstructorArgument("filename", HostingEnvironment.MapPath(ConfigurationManager.AppSettings["GameStepsPath"]));
         }
     }
 }

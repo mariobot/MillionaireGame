@@ -1,0 +1,62 @@
+[
+	{
+		"step" : 1,
+		"reward" : 100
+	},
+	{
+		"step" : 2,
+		"reward" : 200
+	},
+	{
+		"step" : 3,
+		"reward" : 300
+	},
+	{
+		"step" : 4,
+		"reward" : 500
+	},
+	{
+		"step" : 5,
+		"reward" : 1000
+	},
+	{
+		"step" : 6,
+		"reward" : 2000
+	},
+	{
+		"step" : 7,
+		"reward" : 4000
+	},
+	{
+		"step" : 8,
+		"reward" : 8000
+	},
+	{
+		"step" : 9,
+		"reward" : 16000
+	},
+	{
+		"step" : 10,
+		"reward" : 32000
+	},
+	{
+		"step" : 11,
+		"reward" : 64000
+	},
+	{
+		"step" : 12,
+		"reward" : 125000
+	},
+	{
+		"step" : 13,
+		"reward" : 250000
+	},
+	{
+		"step" : 14,
+		"reward" : 500000
+	},
+	{
+		"step" : 15,
+		"reward" : 1000000
+	}
+]

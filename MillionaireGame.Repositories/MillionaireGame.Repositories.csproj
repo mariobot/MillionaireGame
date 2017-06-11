@@ -46,8 +46,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstract\IGameStepRepository.cs" />
     <Compile Include="Abstract\IQuestionRepository.cs" />
     <Compile Include="Concrete\JsonQuestionRepository.cs" />
+    <Compile Include="Concrete\JsonGameStepRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
