@@ -12,14 +12,16 @@ namespace MillionaireGame.Frontend.Controllers
 {
     public class HomeController : Controller
     {
-        // GET: Home
         private readonly IQuestionRepository _questionRepository;
+        private readonly IGameStepRepository _gameStepRepository;
 
-        public HomeController(IQuestionRepository questionRepo)
+        public HomeController(IQuestionRepository questionRepo, IGameStepRepository gameStepRepo)
         {
             _questionRepository = questionRepo;
+            _gameStepRepository = gameStepRepo;
         }
 
+        // GET: Home
         public ActionResult Index()
         {
             return View();
@@ -30,6 +32,7 @@ namespace MillionaireGame.Frontend.Controllers
         {
             Session["name"] = PlayerName;
             var questions = _questionRepository.Questions;
+            var steps = _gameStepRepository.GameSteps;
             return View(questions);
         }
     }

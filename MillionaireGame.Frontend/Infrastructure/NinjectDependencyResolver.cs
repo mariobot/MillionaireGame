@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Web.Hosting;
 using System.Web.Mvc;
 using MillionaireGame.Repositories.Abstract;
 using MillionaireGame.Repositories.Concrete;
 using Ninject;
+// ReSharper disable AssignNullToNotNullAttribute
 
 namespace MillionaireGame.Frontend.Infrastructure
 {
@@ -31,7 +33,9 @@ namespace MillionaireGame.Frontend.Infrastructure
         private void AddBindings()
         {
             _kernel.Bind<IQuestionRepository>().To<JsonQuestionRepository>()
-                .WithConstructorArgument("filename", HostingEnvironment.MapPath("~/App_Data/Questions.json"));
+                .WithConstructorArgument("filename", HostingEnvironment.MapPath(ConfigurationManager.AppSettings["QuestionsPath"]));
+            _kernel.Bind<IGameStepRepository>().To<JsonGameStepRepository>()
+                .WithConstructorArgument("filename", HostingEnvironment.MapPath(ConfigurationManager.AppSettings["GameStepsPath"]));
         }
     }
 }
