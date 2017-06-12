@@ -19,3 +19,44 @@ textarea {
 .custom-jumbotron {
     margin-top : 20px;
 }
+
+#question {
+    z-index: 3;
+}
+
+.btn-answer {
+    outline: none;
+    border-radius: 7px;
+    border-color: #fff;
+    background: #223E95;
+    color: #fff;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    padding: 5px 5px 5px 15px;
+    text-align: left;
+}
+
+.btn-answer:hover {
+    background: #2252e8;
+}
+
+.img-background {
+    height: 350px;
+    width: 450px;
+}
+
+.game-page {
+    background-color: #142048;
+}
+
+.question-block {
+    outline: none;
+    border-radius: 10px;
+    border-color: #fff;
+    background: #020c2c;
+    color: #fff;
+    margin-bottom: 15px;
+    padding: 5px 5px 5px 15px;
+    text-align: center;
+    border: 2px solid #fff;
+}

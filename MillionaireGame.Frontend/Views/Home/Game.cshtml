@@ -1,7 +1,38 @@
-﻿
+﻿@using MillionaireGame.Entities
+
+@model IEnumerable<Question>
 @{
     ViewBag.Title = "Game";
 }
 
-<h2>@Session["name"]</h2>
+<div class="row game-page">
+    <div class="col-md-8 col-md-offset-2">
+        <div class="img-responsive">
+            <img src="~/Content/Images/millionaire-logo.jpg" alt="Millionair logo" class="img-background col-md-offset-2 col-sm-offset-2"/>
+        </div>
+        <div id="question">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 question-block">
+                    <p>@Model.First().Title</p>
+                </div>
+            </div>
+            <input class="btn-block col-md-3 col-md-offset-1 col-sm-3 col-sm-offset-1 btn-answer"
+                   id="aBtn"
+                   type="button" 
+                   value="@string.Format("A. {0}", Model.First().Answers.ElementAt(0).Title)"/>
+            <input class="btn-block col-md-3 col-md-offset-1 col-sm-3 col-sm-offset-1 btn-answer"
+                   id="bBtn"
+                   type="button"
+                   value="@string.Format("B. {0}", Model.First().Answers.ElementAt(1).Title)" />
+            <input class="btn-block col-md-3 col-md-offset-1 col-sm-3 col-sm-offset-1 btn-answer"
+                   id="cBtn"
+                   type="button"
+                   value="@string.Format("C. {0}", Model.First().Answers.ElementAt(2).Title)" />
+            <input class="btn-block col-md-3 col-md-offset-1 col-sm-3 col-sm-offset-1 btn-answer"
+                   id="dBtn"
+                   type="button"
+                   value="@string.Format("D. {0}", Model.First().Answers.ElementAt(3).Title)" />
+        </div>
+    </div>
+</div>
 
