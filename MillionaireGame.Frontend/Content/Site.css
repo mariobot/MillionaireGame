@@ -60,3 +60,22 @@ textarea {
     text-align: center;
     border: 2px solid #fff;
 }
+
+.steps-list {
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    list-style-type:none;
+    margin-top: 15px;
+}
+
+.steps-list li{
+    border-radius: 7px;
+    border-width: 1px;
+    border-color: #000;
+    padding-left: 10px;
+}
+
+.step-selected {
+   background-color: #ff7b1e;
+}
