@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace MillionaireGame.Entities
 {
@@ -11,6 +12,12 @@ namespace MillionaireGame.Entities
         {
             Title = question;
             Answers = answers;
+        }
+
+        public bool IsAnswerCorrect(string answer)
+        {
+            var finded = Answers.Where(a => a.Title.Equals(answer)).FirstOrDefault();
+            return finded == null ? false : finded.Correct;
         }
     }
 }

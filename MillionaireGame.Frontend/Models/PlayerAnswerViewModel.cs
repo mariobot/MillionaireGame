@@ -7,8 +7,9 @@ namespace MillionaireGame.Frontend.Models
 {
     public class PlayerAnswerViewModel
     {
-        public string PlayerAnser { get; set; }
+        public string PlayerAnswer { get; set; }
 
         public int QuestionIndex { get; set; }
+
     }
 }

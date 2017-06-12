@@ -7,6 +7,8 @@ namespace MillionaireGame.Frontend.Models
     {
         public int QuestionIndex { get; set; }
 
+        public bool EndOfGame { get; set; }
+
         public Question Question { get; set; }
 
         public IEnumerable<GameStep> GameSteps { get; set; }

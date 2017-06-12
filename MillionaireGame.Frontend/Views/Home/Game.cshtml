@@ -1,6 +1,8 @@
 ﻿@using MillionaireGame.Entities
+@using MillionaireGame.Frontend.Models
+@using System.Web.Optimization
 
-@model IEnumerable<Question>
+@model GameViewModel
 @{
     ViewBag.Title = "Game";
 }
@@ -8,31 +10,45 @@
 <div class="row game-page">
     <div class="col-md-8 col-md-offset-2">
         <div class="img-responsive">
-            <img src="~/Content/Images/millionaire-logo.jpg" alt="Millionair logo" class="img-background col-md-offset-2 col-sm-offset-2"/>
+            <img src="~/Content/Images/millionaire-logo.jpg" alt="Millionair logo" class="img-background col-md-4 col-md-offset-2 col-sm-4 col-sm-offset-2"/>
+        </div>
+        <div class="col-md-2 col-sm-2">
+            <ul class="steps-list">
+                @foreach(GameStep step in Model.GameSteps)
+                {
+                    <li id="@step.Step">@step.Reward</li>
+                }
+            </ul>
         </div>
         <div id="question">
             <div class="row">
                 <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 question-block">
-                    <p>@Model.First().Title</p>
+                    <p id="questionP">@Model.Question.Title</p>
                 </div>
             </div>
             <input class="btn-block col-md-3 col-md-offset-1 col-sm-3 col-sm-offset-1 btn-answer"
                    id="aBtn"
                    type="button" 
-                   value="@string.Format("A. {0}", Model.First().Answers.ElementAt(0).Title)"/>
+                   value="@string.Format("A. {0}", Model.Question.Answers.ElementAt(0).Title)"/>
             <input class="btn-block col-md-3 col-md-offset-1 col-sm-3 col-sm-offset-1 btn-answer"
                    id="bBtn"
                    type="button"
-                   value="@string.Format("B. {0}", Model.First().Answers.ElementAt(1).Title)" />
+                   value="@string.Format("B. {0}", Model.Question.Answers.ElementAt(1).Title)" />
             <input class="btn-block col-md-3 col-md-offset-1 col-sm-3 col-sm-offset-1 btn-answer"
                    id="cBtn"
                    type="button"
-                   value="@string.Format("C. {0}", Model.First().Answers.ElementAt(2).Title)" />
+                   value="@string.Format("C. {0}", Model.Question.Answers.ElementAt(2).Title)" />
             <input class="btn-block col-md-3 col-md-offset-1 col-sm-3 col-sm-offset-1 btn-answer"
                    id="dBtn"
                    type="button"
-                   value="@string.Format("D. {0}", Model.First().Answers.ElementAt(3).Title)" />
+                   value="@string.Format("D. {0}", Model.Question.Answers.ElementAt(3).Title)" />
         </div>
     </div>
 </div>
+<script>
+    window.questionIndex = @Model.QuestionIndex;
+    $('#' + (questionIndex + 1)).addClass('step-selected');
+</script>
+@Scripts.Render("~/bundles/redirect");
+@Scripts.Render("~/bundles/answer")
 
