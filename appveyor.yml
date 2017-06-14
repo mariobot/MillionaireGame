@@ -1,7 +1,5 @@
-configuration: Release
+version: 0.1.{build}
+image: Visual Studio 2017
 
-before_build:
-  - nuget restore
-
-build:
-  verbosity: minimal
+build_script:
+- ps: nuget restore
