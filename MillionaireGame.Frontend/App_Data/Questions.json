@@ -19,5 +19,299 @@
         "correct": false
       }
     ]
+  },
+  {
+    "title": "Про людину, яка висловлює слушні думки, кажуть, що вона має...",
+    "answers": [
+      {
+        "title": "Пейджер",
+        "correct": false
+      },
+      {
+        "title": "Рацію",
+        "correct": true
+      },
+      {
+        "title": "Локатор",
+        "correct": false
+      },
+      {
+        "title": "Диктофон",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "title": "Ким за фахом був академік Микола Васильович Скліфосовський?",
+    "answers": [
+      {
+        "title": "Географ",
+        "correct": false
+      },
+      {
+        "title": "Фізик",
+        "correct": false
+      },
+      {
+        "title": "Лікар",
+        "correct": true
+      },
+      {
+        "title": "Художник",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "title": "Яка тварина, за кримською легендою, перетворилась на гору Аюдаг?",
+    "answers": [
+      {
+        "title": "Дельфін",
+        "correct": false
+      },
+      {
+        "title": "Баран",
+        "correct": false
+      },
+      {
+        "title": "Ведмідь",
+        "correct": true
+      },
+      {
+        "title": "Верблюд",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "title": "На території якої сучасної держави було знайдено залишки легендарної Трої?",
+    "answers": [
+      {
+        "title": "Італії",
+        "correct": false
+      },
+      {
+        "title": "Туреччини",
+        "correct": true
+      },
+      {
+        "title": "Греції",
+        "correct": false
+      },
+      {
+        "title": "Єгипту",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "title": "Як називається межа між темною та освітленою частинами поверхні планети?",
+    "answers": [
+      {
+        "title": "Термінатор",
+        "correct": true
+      },
+      {
+        "title": "Модератор",
+        "correct": false
+      },
+      {
+        "title": "Акомпаніатор",
+        "correct": false
+      },
+      {
+        "title": "Стабілізатор",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "title": "Який годинник винайшов нідерландський вчений Хрістіан Гюйгенс?",
+    "answers": [
+      {
+        "title": "Піщаний",
+        "correct": false
+      },
+      {
+        "title": "Сонячний",
+        "correct": false
+      },
+      {
+        "title": "Маятниковий",
+        "correct": true
+      },
+      {
+        "title": "Електронний",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "title": "Якій державі належить острів Мафія?",
+    "answers": [
+      {
+        "title": "Італії",
+        "correct": false
+      },
+      {
+        "title": "США",
+        "correct": false
+      },
+      {
+        "title": "Панамі",
+        "correct": false
+      },
+      {
+        "title": "Танзанії",
+        "correct": true
+      }
+    ]
+  },
+  {
+    "title": "Яка історична особа була зображена на купоні 1 000 000 українських карбованців 1995 року?",
+    "answers": [
+      {
+        "title": "Тарас Шевченко",
+        "correct": true
+      },
+      {
+        "title": "Богдан Хмельницький",
+        "correct": false
+      },
+      {
+        "title": "Михайло Грушевський",
+        "correct": false
+      },
+      {
+        "title": "Ярослав Мудрий",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "title": "У якій із цих країн напруга в електромережі загального користування 110 вольт?",
+    "answers": [
+      {
+        "title": "Афганістан",
+        "correct": false
+      },
+      {
+        "title": "Мексика",
+        "correct": true
+      },
+      {
+        "title": "Австралія",
+        "correct": false
+      },
+      {
+        "title": "Китай",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "title": "З якої мови запозичено назву традиційних українських штанів - шаровар?",
+    "answers": [
+      {
+        "title": "Французької",
+        "correct": false
+      },
+      {
+        "title": "Персидської",
+        "correct": true
+      },
+      {
+        "title": "Німецької",
+        "correct": false
+      },
+      {
+        "title": "Польської",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "title": "Що таке контрфорс?",
+    "answers": [
+      {
+        "title": "Музичний термін",
+        "correct": false
+      },
+      {
+        "title": "Рослина",
+        "correct": false
+      },
+      {
+        "title": "Бактерія",
+        "correct": false
+      },
+      {
+        "title": "Архітектурний елемент",
+        "correct": true
+      }
+    ]
+  },
+  {
+    "title": "Що в перекладі з угорської означає 'Говерла'?",
+    "answers": [
+      {
+        "title": "Висока гора",
+        "correct": false
+      },
+      {
+        "title": "Зелена гора",
+        "correct": false
+      },
+      {
+        "title": "Сніжна гора",
+        "correct": true
+      },
+      {
+        "title": "Лиса гора",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "title": "Як князя Ярослава Мудрого звали по-батькові?",
+    "answers": [
+      {
+        "title": "Володимирович",
+        "correct": true
+      },
+      {
+        "title": "Святославович",
+        "correct": false
+      },
+      {
+        "title": "Ігорович",
+        "correct": false
+      },
+      {
+        "title": "Ілліч",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "title": "Який хімічний елемент був вперше отриманий із морських водоростей?",
+    "answers": [
+      {
+        "title": "Калій",
+        "correct": false
+      },
+      {
+        "title": "Фосфор",
+        "correct": false
+      },
+      {
+        "title": "Йод",
+        "correct": true
+      },
+      {
+        "title": "Бром",
+        "correct": false
+      }
+    ]
   }
 ]
