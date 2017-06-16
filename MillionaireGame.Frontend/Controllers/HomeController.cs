@@ -47,13 +47,14 @@ namespace MillionaireGame.Frontend.Controllers
         public ActionResult PlayerGame(PlayerAnswerViewModel answer)
         {
             int index = answer.QuestionIndex;
-            var currentQuestion = _questionRepository.Questions.ElementAt(0); //see lower
+            var currentQuestion = _questionRepository.Questions.ElementAt(index); //see lower
             bool endOfGame = true;
             if (currentQuestion.IsAnswerCorrect(answer.PlayerAnswer))
             {
-                if(index == 14)
+                if (index == 14)
                 {
                     //return winning page here
+                    return View("Win");
                 }
                 endOfGame = false;
             }
@@ -62,7 +63,7 @@ namespace MillionaireGame.Frontend.Controllers
             {
                 EndOfGame = endOfGame,
                 QuestionIndex = newIndex,                              //uncomment when all quests will be able
-                Question = _questionRepository.Questions.ElementAt(0), //ElementAt(newIndex)  
+                Question = _questionRepository.Questions.ElementAt(newIndex), //ElementAt(newIndex)  
                 GameSteps = null
             };
             string response = JsonConvert.SerializeObject(game);
@@ -74,6 +75,6 @@ namespace MillionaireGame.Frontend.Controllers
         public ActionResult GameResult(int step) //step need for win sum of money
         {
             return View();
-        } 
+        }
     }
 }
