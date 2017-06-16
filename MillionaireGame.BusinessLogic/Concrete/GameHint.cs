@@ -23,7 +23,7 @@ namespace MillionaireGame.BusinessLogic.Concrete
                 }
                 else
                 {
-                    answer.Title = "";
+                    answer.Title = string.Empty;
                 }
             }
             return question;
