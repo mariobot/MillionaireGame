@@ -1,10 +1,15 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Routing;
 using MillionaireGame.Entities;
 using MillionaireGame.Frontend.Controllers;
+using MillionaireGame.Frontend.Models;
 using MillionaireGame.Repositories.Abstract;
+using MillionaireGame.UnitTests.Helpers;
 using Moq;
+using Newtonsoft.Json;
 using NUnit.Framework;
 
 namespace MillionaireGame.UnitTests
@@ -14,9 +19,10 @@ namespace MillionaireGame.UnitTests
     {
         private Mock<IQuestionRepository> _questionsMock;
         private Mock<IGameStepRepository> _stepsMock;
+        private HttpContextBase _fakeContext;
 
         [SetUp]
-        public void Init()
+        public void InitRepositories()
         {
             _questionsMock = new Mock<IQuestionRepository>();
             _questionsMock.Setup(q => q.Questions).Returns(new List<Question>
@@ -54,6 +60,12 @@ namespace MillionaireGame.UnitTests
             });
         }
 
+        [SetUp]
+        public void InitFakeContext()
+        {
+            _fakeContext = MockHttpSession.FakeHttpContext();
+        }
+
         [Test]
         public void HomeController_ReturnsIndexView()
         {
@@ -65,14 +77,63 @@ namespace MillionaireGame.UnitTests
         }
 
         [Test]
-        public void HomeController_SaveUserSession()
+        public void HomeController_ReturnsGameView()
         {
             var controller = new HomeController(_questionsMock.Object, _stepsMock.Object);
-            var context = new Mock<HttpContext>();
+            controller.ControllerContext = new ControllerContext(_fakeContext, new RouteData(), controller);
 
-            var result = controller.Game("talon") as ViewResult;
+            var result = controller.Game("TestPlayer") as ViewResult;
 
             Assert.IsInstanceOf<ViewResult>(result);
+        }
+
+        [Test]
+        public void HomeController_ReturnsPlayerGameResponse()
+        {
+            var controller = new HomeController(_questionsMock.Object, _stepsMock.Object);
+            controller.ControllerContext = new ControllerContext(_fakeContext, new RouteData(), controller);
+            var playerAnswerModel = new PlayerAnswerViewModel();
+
+            var result = controller.PlayerGame(playerAnswerModel) as JsonResult;
+
+            Assert.IsInstanceOf<JsonResult>(result);
+        }
+
+        [Test]
+        public void HomeController_ReturnsEndOfGameResponse_WithIncorrectAnswer()
+        {
+            var controller = new HomeController(_questionsMock.Object, _stepsMock.Object);
+            controller.ControllerContext = new ControllerContext(_fakeContext, new RouteData(), controller);
+            var playerAnswerModel = new PlayerAnswerViewModel
+            {
+                PlayerAnswer = "1_3",
+                QuestionIndex = 0
+            };
+
+            var controllerResult = controller.PlayerGame(playerAnswerModel) as JsonResult;
+            var gameViewModel = JsonConvert.DeserializeObject<GameViewModel>(controllerResult?.Data.ToString());
+
+            Assert.AreEqual(true, gameViewModel.EndOfGame);
+        }
+
+        [Test]
+        public void HomeController_ReturnsNextQuestionResponse_WithCorrectAnswer()
+        {
+            var controller = new HomeController(_questionsMock.Object, _stepsMock.Object);
+            controller.ControllerContext = new ControllerContext(_fakeContext, new RouteData(), controller);
+            var playerAnswerModel = new PlayerAnswerViewModel
+            {
+                PlayerAnswer = "1_2",
+                QuestionIndex = 0
+            };
+
+            var controllerResult = controller.PlayerGame(playerAnswerModel) as JsonResult;
+            var gameViewModel = JsonConvert.DeserializeObject<GameViewModel>(controllerResult?.Data.ToString());
+            var repositoryQuestion = _questionsMock.Object.Questions.ElementAt(1);
+            var modelQuestion = gameViewModel.Question;
+
+            Assert.AreEqual(false, gameViewModel.EndOfGame);
+            Assert.AreEqual(repositoryQuestion.Title, modelQuestion.Title);
         }
     }
 }
