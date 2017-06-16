@@ -80,12 +80,17 @@
   <ItemGroup>
     <Compile Include="HomeControllerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="GameHintTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MillionaireGame.BusinessLogic\MillionaireGame.BusinessLogic.csproj">
+      <Project>{FF24191E-BDF5-445F-B9E6-9E6810DDB911}</Project>
+      <Name>MillionaireGame.BusinessLogic</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MillionaireGame.Entities\MillionaireGame.Entities.csproj">
       <Project>{FC5333F9-AC8A-4CBB-875F-56C2C47F1C51}</Project>
       <Name>MillionaireGame.Entities</Name>
