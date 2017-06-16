@@ -135,7 +135,9 @@
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -180,7 +182,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MillionaireGame.BusinessLogic\MillionaireGame.BusinessLogic.csproj">
-      <Project>{FF24191E-BDF5-445F-B9E6-9E6810DDB911}</Project>
+      <Project>{ff24191e-bdf5-445f-b9e6-9e6810ddb911}</Project>
       <Name>MillionaireGame.BusinessLogic</Name>
     </ProjectReference>
     <ProjectReference Include="..\MillionaireGame.Entities\MillionaireGame.Entities.csproj">
