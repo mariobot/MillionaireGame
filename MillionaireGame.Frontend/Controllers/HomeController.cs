@@ -9,6 +9,8 @@ using MillionaireGame.Entities;
 using MillionaireGame.Repositories.Abstract;
 using MillionaireGame.Frontend.Models;
 using Newtonsoft.Json;
+using MillionaireGame.BusinessLogic.Abstraction;
+using MillionaireGame.BusinessLogic.Concrete;
 
 namespace MillionaireGame.Frontend.Controllers
 {
@@ -16,11 +18,14 @@ namespace MillionaireGame.Frontend.Controllers
     {
         private readonly IQuestionRepository _questionRepository;
         private readonly IGameStepRepository _gameStepRepository;
+        private readonly IGameHint _gameHint;
 
-        public HomeController(IQuestionRepository questionRepo, IGameStepRepository gameStepRepo)
+        public HomeController(IQuestionRepository questionRepo, IGameStepRepository gameStepRepo, 
+            IGameHint gameHint)
         {
             _questionRepository = questionRepo;
             _gameStepRepository = gameStepRepo;
+            _gameHint = gameHint;
         }
 
         // GET: Home
@@ -75,6 +80,15 @@ namespace MillionaireGame.Frontend.Controllers
         public ActionResult GameResult(int step) //step need for win sum of money
         {
             return View();
+        }
+
+        [HttpPost]
+        public JsonResult FiftyPercentsHint(int questionIndex)
+        {
+            var question = _questionRepository.Questions.ElementAt(questionIndex);
+            var hintQuestion = _gameHint.FiftyPercentsHint(question);
+            string strQuestion = JsonConvert.SerializeObject(hintQuestion);
+            return Json(strQuestion);
         }
     }
 }
