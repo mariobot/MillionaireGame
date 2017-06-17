@@ -69,7 +69,7 @@ namespace MillionaireGame.UnitTests
         [Test]
         public void HomeController_ReturnsIndexView()
         {
-            var controller = new HomeController(null, null);
+            var controller = new HomeController(null, null, null);
 
             var result = controller.Index() as ViewResult;
 
@@ -79,7 +79,7 @@ namespace MillionaireGame.UnitTests
         [Test]
         public void HomeController_ReturnsGameView()
         {
-            var controller = new HomeController(_questionsMock.Object, _stepsMock.Object);
+            var controller = new HomeController(_questionsMock.Object, _stepsMock.Object, null);
             controller.ControllerContext = new ControllerContext(_fakeContext, new RouteData(), controller);
 
             var result = controller.Game("TestPlayer") as ViewResult;
@@ -90,7 +90,7 @@ namespace MillionaireGame.UnitTests
         [Test]
         public void HomeController_ReturnsPlayerGameResponse()
         {
-            var controller = new HomeController(_questionsMock.Object, _stepsMock.Object);
+            var controller = new HomeController(_questionsMock.Object, _stepsMock.Object, null);
             controller.ControllerContext = new ControllerContext(_fakeContext, new RouteData(), controller);
             var playerAnswerModel = new PlayerAnswerViewModel();
 
@@ -102,7 +102,7 @@ namespace MillionaireGame.UnitTests
         [Test]
         public void HomeController_ReturnsEndOfGameResponse_WithIncorrectAnswer()
         {
-            var controller = new HomeController(_questionsMock.Object, _stepsMock.Object);
+            var controller = new HomeController(_questionsMock.Object, _stepsMock.Object, null);
             controller.ControllerContext = new ControllerContext(_fakeContext, new RouteData(), controller);
             var playerAnswerModel = new PlayerAnswerViewModel
             {
@@ -119,7 +119,7 @@ namespace MillionaireGame.UnitTests
         [Test]
         public void HomeController_ReturnsNextQuestionResponse_WithCorrectAnswer()
         {
-            var controller = new HomeController(_questionsMock.Object, _stepsMock.Object);
+            var controller = new HomeController(_questionsMock.Object, _stepsMock.Object, null);
             controller.ControllerContext = new ControllerContext(_fakeContext, new RouteData(), controller);
             var playerAnswerModel = new PlayerAnswerViewModel
             {
