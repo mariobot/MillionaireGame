@@ -20,6 +20,7 @@ namespace MillionaireGame.BusinessLogic.Concrete
                 if (answer.Correct || string.IsNullOrEmpty(answer.Title))
                 {
                     i--;
+                    outIndex = rnd.Next(0, 3);
                 }
                 else
                 {
