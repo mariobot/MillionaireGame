@@ -22,7 +22,6 @@ $btns.on('click', (e) => {
                 obj.value = nextChar + '. ' + data.Question.Answers[i].Title;
                 nextChar = String.fromCharCode(nextChar.charCodeAt() + 1);
             });
-            debugger;
             //restors buttons state if 50x50 hint was used
             if (window.isFiftyPercentsUsed) {
                 restoreBtns();
@@ -33,7 +32,6 @@ $btns.on('click', (e) => {
 
 //enables buttons
 function restoreBtns() {
-    debugger;
     $('.btn-answer').each((i, btn) => {
         btn.disabled = false;
     });
