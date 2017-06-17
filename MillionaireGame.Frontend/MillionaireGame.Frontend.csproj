@@ -125,6 +125,7 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="App_Data\GameSteps.json" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\Custom\fifty-percents-hint.js" />
     <Content Include="Scripts\Custom\name-validator.js" />
     <Content Include="Scripts\Custom\user-answer.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -178,6 +179,10 @@
     <Folder Include="Content\Images\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MillionaireGame.BusinessLogic\MillionaireGame.BusinessLogic.csproj">
+      <Project>{FF24191E-BDF5-445F-B9E6-9E6810DDB911}</Project>
+      <Name>MillionaireGame.BusinessLogic</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MillionaireGame.Entities\MillionaireGame.Entities.csproj">
       <Project>{fc5333f9-ac8a-4cbb-875f-56c2c47f1c51}</Project>
       <Name>MillionaireGame.Entities</Name>
