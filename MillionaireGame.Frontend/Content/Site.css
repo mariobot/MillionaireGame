@@ -79,3 +79,39 @@ textarea {
 .step-selected {
    background-color: #ff7b1e;
 }
+
+.btn-hints {
+    background-size: cover;
+    outline: none;
+    margin-top: 15px;
+    padding: 38px 48px;
+}
+
+.btn-hints:hover {
+    border-radius: 10px;
+    /*border: 1px solid #fff;*/
+}
+
+#fiftyHint {
+    background-image: url('Images/HintButtons/5050.png');
+}
+
+#fiftyHint:hover {
+    background-image: url('Images/HintButtons/5050Orange.png');
+}
+
+#audienceHint {
+    background-image: url('Images/HintButtons/audience.png');
+}
+
+#audienceHint:hover {
+    background-image: url('Images/HintButtons/audienceOrange.png');
+}
+
+#friendCallHint {
+    background-image: url('Images/HintButtons/phoneAFriend.png');
+}
+
+#friendCallHint:hover {
+    background-image: url('Images/HintButtons/phoneAFriendOrange.png');
+}
