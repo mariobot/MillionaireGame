@@ -92,5 +92,14 @@ namespace MillionaireGame.Frontend.Controllers
             _gameHint.FriendCallHint(question, (string)Session["name"], recipient);
             return Json(recipient);
         }
+
+        [HttpPost]
+        public JsonResult AudienceHint(int questionIndex)
+        {
+            var question = _questionRepository.Questions.ElementAt(questionIndex);
+            var url = _gameHint.AudienceHint(question);
+            var result = JsonConvert.SerializeObject(url);
+            return Json(result);
+        }
     }
 }

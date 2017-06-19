@@ -51,5 +51,11 @@ namespace MillionaireGame.BusinessLogic.Concrete
 
             new Task(() => _messageService.SendMessage(sb.ToString(), recipient)).Start();
         }
+
+        public string AudienceHint(Question question)
+        {
+            var url = @"https://google.com/#q=" + question.Title;
+            return url;
+        }
     }
 }

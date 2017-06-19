@@ -33,7 +33,8 @@ namespace MillionaireGame.Frontend.App_Start
             bundles.Add(new ScriptBundle("~/bundles/answer").Include(
                     "~/Scripts/Custom/user-answer.js",
                     "~/Scripts/Custom/fifty-percents-hint.js",
-                    "~/Scripts/Custom/friend-call-hint.js"));
+                    "~/Scripts/Custom/friend-call-hint.js",
+                    "~/Scripts/Custom/audience-hint.js"));
         }
     }
 }

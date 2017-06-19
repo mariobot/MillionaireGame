@@ -17,7 +17,7 @@ textarea {
 }
 
 .custom-jumbotron {
-    margin-top : 20px;
+    margin-top: 20px;
 }
 
 #question {
@@ -36,9 +36,9 @@ textarea {
     text-align: left;
 }
 
-.btn-answer:hover {
-    background: #2252e8;
-}
+    .btn-answer:hover {
+        background: #2252e8;
+    }
 
 .img-background {
     height: 350px;
@@ -65,19 +65,20 @@ textarea {
     color: #fff;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 14px;
-    list-style-type:none;
+    list-style-type: none;
     margin-top: 15px;
 }
 
-.steps-list li{
-    border-radius: 7px;
-    border-width: 1px;
-    border-color: #000;
-    padding-left: 10px;
-}
+    .steps-list li {
+        border-radius: 7px;
+        border-width: 1px;
+        border-color: #000;
+        padding-left: 10px;
+    }
 
 .step-selected {
-   background-color: #ff7b1e;
+    background-color: #ff7b1e;
+    width: 70px;
 }
 
 .btn-hints {
@@ -87,34 +88,34 @@ textarea {
     padding: 38px 48px;
 }
 
-.btn-hints:hover {
-    border-radius: 10px;
-    /*border: 1px solid #fff;*/
-}
+    .btn-hints:hover {
+        border-radius: 10px;
+        /*border: 1px solid #fff;*/
+    }
 
 #fiftyHint {
     background-image: url('Images/HintButtons/5050.png');
 }
 
-#fiftyHint:hover {
-    background-image: url('Images/HintButtons/5050Orange.png');
-}
+    #fiftyHint:hover {
+        background-image: url('Images/HintButtons/5050Orange.png');
+    }
 
 #audienceHint {
     background-image: url('Images/HintButtons/audience.png');
 }
 
-#audienceHint:hover {
-    background-image: url('Images/HintButtons/audienceOrange.png');
-}
+    #audienceHint:hover {
+        background-image: url('Images/HintButtons/audienceOrange.png');
+    }
 
 #friendCallHint {
     background-image: url('Images/HintButtons/phoneAFriend.png');
 }
 
-#friendCallHint:hover {
-    background-image: url('Images/HintButtons/phoneAFriendOrange.png');
-}
+    #friendCallHint:hover {
+        background-image: url('Images/HintButtons/phoneAFriendOrange.png');
+    }
 
 .email-validation-error {
     border: 2px solid #ff0000 !important;

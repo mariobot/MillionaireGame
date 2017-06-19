@@ -19,6 +19,11 @@ namespace MillionaireGame.BusinessLogic.Abstract
         /// <param name="recipient">Email, phone or other information to contact with friend</param>
         void FriendCallHint(Question question, string playerName, string recipient);
 
-        // TODO: Add hall help hint
+        /// <summary>
+        /// Implements audience hint
+        /// </summary>
+        /// <param name="question">Current question</param>
+        /// <returns>Url with useful information</returns>
+        string AudienceHint(Question question);
     }
 }
