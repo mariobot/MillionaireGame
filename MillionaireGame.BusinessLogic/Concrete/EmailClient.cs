@@ -9,9 +9,11 @@ namespace MillionaireGame.BusinessLogic.Concrete
     {
         private EmailConfigurationElement _emailSettings;
         private readonly SmtpClient _smtp;
+        private readonly IEncryptionService _encryptionSerive;
 
-        public EmailClient()
+        public EmailClient(IEncryptionService encryptionService)
         {
+            _encryptionSerive = encryptionService;
             _smtp = new SmtpClient
             {
                 EnableSsl = true,
@@ -31,7 +33,8 @@ namespace MillionaireGame.BusinessLogic.Concrete
 
             var fromAddress = new MailAddress(_emailSettings.MailFromAddress, _emailSettings.MailFromName);
             var toAddress = new MailAddress(recipientEmail);
-            var credential = new NetworkCredential(fromAddress.Address, _emailSettings.Password);
+            var password = _encryptionSerive.Decrypt(_emailSettings.Password);
+            var credential = new NetworkCredential(fromAddress.Address, password);
 
             _smtp.Host = _emailSettings.Host;
             _smtp.Port = _emailSettings.Port;

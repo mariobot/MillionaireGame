@@ -47,8 +47,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstract\IEncryptionService.cs" />
     <Compile Include="Abstract\IGameHint.cs" />
     <Compile Include="Abstract\IMessageService.cs" />
+    <Compile Include="Concrete\AESEncryptionService.cs" />
     <Compile Include="Concrete\GameHint.cs" />
     <Compile Include="Concrete\EmailClient.cs" />
     <Compile Include="Concrete\EmailConfigurationElement.cs" />

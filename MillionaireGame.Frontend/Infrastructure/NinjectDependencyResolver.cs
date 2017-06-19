@@ -39,7 +39,8 @@ namespace MillionaireGame.Frontend.Infrastructure
                 .WithConstructorArgument("filename", HostingEnvironment.MapPath(ConfigurationManager.AppSettings["QuestionsPath"]));
             _kernel.Bind<IGameStepRepository>().To<JsonGameStepRepository>()
                 .WithConstructorArgument("filename", HostingEnvironment.MapPath(ConfigurationManager.AppSettings["GameStepsPath"]));
-            _kernel.Bind<IMessageService>().To<EmailClient>();
+            _kernel.Bind<IEncryptionService>().To<AESEncryptionService>().WithConstructorArgument("encryptionKey", "abc123");
+            _kernel.Bind<IMessageService>().To<EmailClient>().WithConstructorArgument("encryptionService", _kernel.Get<IEncryptionService>());
             _kernel.Bind<IGameHint>().To<GameHint>().WithConstructorArgument("messageService", _kernel.Get<IMessageService>());
         }
     }
