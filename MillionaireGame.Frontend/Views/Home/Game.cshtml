@@ -7,19 +7,37 @@
     ViewBag.Title = "Game";
 }
 
+<div class="modal fade" id="friendCallHintWindow">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <p>Допомога друга</p>
+            </div>
+            <div class="modal-body">
+                <label for="friendCallHintEmail">E-mail друга</label>
+                <input type="text" name="email" id="friendCallHintEmail" placeholder="E-mail" />
+            </div>
+            <div class="modal-footer">
+                <input id="friendCallHintBtnSend" type="button" value="Надіслати" />
+                <input id="friendCallHintBtnClose" type="button" value="Закрити" />
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="row game-page">
     <div class="col-md-2">
-        <input type="button" id="fiftyHint" class="btn btn-hints col-md-offset-6"/>
-        <input type="button" id="audienceHint" class="btn btn-hints col-md-offset-6"/>
+        <input type="button" id="fiftyHint" class="btn btn-hints col-md-offset-6" />
+        <input type="button" id="audienceHint" class="btn btn-hints col-md-offset-6" />
         <input type="button" id="friendCallHint" class="btn btn-hints col-md-offset-6" />
     </div>
     <div class="col-md-8">
         <div class="img-responsive">
-            <img src="~/Content/Images/millionaire-logo.jpg" alt="Millionair logo" class="img-background col-md-4 col-md-offset-2 col-sm-4 col-sm-offset-2"/>
+            <img src="~/Content/Images/millionaire-logo.jpg" alt="Millionair logo" class="img-background col-md-4 col-md-offset-2 col-sm-4 col-sm-offset-2" />
         </div>
         <div class="col-md-2 col-sm-2">
             <ul class="steps-list">
-                @foreach(GameStep step in Model.GameSteps)
+                @foreach (GameStep step in Model.GameSteps)
                 {
                     <li id="@step.Step">@step.Reward</li>
                 }
@@ -33,8 +51,8 @@
             </div>
             <input class="btn-block col-md-3 col-md-offset-1 col-sm-3 col-sm-offset-1 btn-answer"
                    id="aBtn"
-                   type="button" 
-                   value="@string.Format("A. {0}", Model.Question.Answers.ElementAt(0).Title)"/>
+                   type="button"
+                   value="@string.Format("A. {0}", Model.Question.Answers.ElementAt(0).Title)" />
             <input class="btn-block col-md-3 col-md-offset-1 col-sm-3 col-sm-offset-1 btn-answer"
                    id="bBtn"
                    type="button"

@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Web.Hosting;
 using System.Web.Mvc;
+using MillionaireGame.BusinessLogic;
+using MillionaireGame.BusinessLogic.Abstract;
 using MillionaireGame.Repositories.Abstract;
 using MillionaireGame.Repositories.Concrete;
 using Ninject;
-using MillionaireGame.BusinessLogic.Abstraction;
 using MillionaireGame.BusinessLogic.Concrete;
 // ReSharper disable AssignNullToNotNullAttribute
 
@@ -38,7 +39,8 @@ namespace MillionaireGame.Frontend.Infrastructure
                 .WithConstructorArgument("filename", HostingEnvironment.MapPath(ConfigurationManager.AppSettings["QuestionsPath"]));
             _kernel.Bind<IGameStepRepository>().To<JsonGameStepRepository>()
                 .WithConstructorArgument("filename", HostingEnvironment.MapPath(ConfigurationManager.AppSettings["GameStepsPath"]));
-            _kernel.Bind<IGameHint>().To<GameHint>();
+            _kernel.Bind<IMessageService>().To<EmailClient>();
+            _kernel.Bind<IGameHint>().To<GameHint>().WithConstructorArgument("messageService", _kernel.Get<IMessageService>());
         }
     }
 }

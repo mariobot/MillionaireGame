@@ -48,13 +48,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstract\IGameHint.cs" />
+    <Compile Include="Abstract\IMessageService.cs" />
     <Compile Include="Concrete\GameHint.cs" />
-    <Compile Include="EmailClient.cs" />
-    <Compile Include="EmailConfigurationElement.cs" />
-    <Compile Include="EmailConfigurationSection.cs" />
-    <Compile Include="IHashingService.cs" />
+    <Compile Include="Concrete\EmailClient.cs" />
+    <Compile Include="Concrete\EmailConfigurationElement.cs" />
+    <Compile Include="Concrete\EmailConfigurationSection.cs" />
+    <Compile Include="Abstract\IHashingService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SHA1HashingService.cs" />
+    <Compile Include="Concrete\SHA1HashingService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

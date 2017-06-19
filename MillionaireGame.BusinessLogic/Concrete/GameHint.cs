@@ -1,15 +1,21 @@
-﻿using MillionaireGame.BusinessLogic.Abstraction;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MillionaireGame.BusinessLogic.Abstract;
 using MillionaireGame.Entities;
 
 namespace MillionaireGame.BusinessLogic.Concrete
 {
     public class GameHint : IGameHint
     {
+        private readonly IMessageService _messageService;
+
+        public GameHint(IMessageService messageService)
+        {
+            _messageService = messageService;
+        }
+
         public Question FiftyPercentsHint(Question question)
         {
             Random rnd = new Random();
@@ -28,6 +34,22 @@ namespace MillionaireGame.BusinessLogic.Concrete
                 }
             }
             return question;
+        }
+
+        public void FriendCallHint(Question question, string playerName, string recipient)
+        {
+            var sb = new StringBuilder(200);
+            sb.Append($"Привіт, {recipient}!\n");
+            sb.Append($"Твій друг {playerName} зараз грає у " +
+                      "'Хто хоче стати мільйонером' і потребує твоєї допомоги!\n");
+            sb.Append($"Питання: {question.Title}\n");
+            sb.Append("Варіанти відповідей: \n");
+            foreach (var answer in question.Answers)
+            {
+                sb.Append($" * {answer.Title}\n");
+            }
+
+            new Task(() => _messageService.SendMessage(sb.ToString(), recipient)).Start();
         }
     }
 }

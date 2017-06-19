@@ -3,16 +3,26 @@ using MillionaireGame.Entities;
 using System.Collections.Generic;
 using MillionaireGame.BusinessLogic.Concrete;
 using System.Linq;
+using MillionaireGame.BusinessLogic.Abstract;
+using Moq;
 
 namespace MillionaireGame.UnitTests
 {
     [TestFixture]
     public class GameHintTests
     {
+        private Mock<IMessageService> _messageService;
+
+        [SetUp]
+        public void Init()
+        {
+            _messageService = new Mock<IMessageService>();
+        }
+
         [Test]
         public void GameHint_FiftyPercentsHintTest()
         {
-            var question = new Question()
+            var question = new Question
             {
                 Title = "q title",
                 Answers = new List<Answer>
@@ -23,7 +33,7 @@ namespace MillionaireGame.UnitTests
                         new Answer{Title = "a4", Correct = true},
                     }
             };
-            var gameHint = new GameHint();
+            var gameHint = new GameHint(_messageService.Object);
 
             var newQuestion = gameHint.FiftyPercentsHint(question);
 

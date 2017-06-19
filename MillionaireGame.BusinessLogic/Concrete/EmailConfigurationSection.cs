@@ -1,6 +1,6 @@
 ﻿using System.Configuration;
 
-namespace MillionaireGame.BusinessLogic
+namespace MillionaireGame.BusinessLogic.Concrete
 {
     public sealed class EmailConfigurationSection : ConfigurationSection
     {

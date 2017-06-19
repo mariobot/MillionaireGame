@@ -126,6 +126,7 @@
     <Content Include="App_Data\GameSteps.json" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\Custom\fifty-percents-hint.js" />
+    <Content Include="Scripts\Custom\friend-call-hint.js" />
     <Content Include="Scripts\Custom\name-validator.js" />
     <Content Include="Scripts\Custom\user-answer.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />

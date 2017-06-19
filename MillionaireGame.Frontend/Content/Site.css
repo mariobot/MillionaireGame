@@ -115,3 +115,7 @@ textarea {
 #friendCallHint:hover {
     background-image: url('Images/HintButtons/phoneAFriendOrange.png');
 }
+
+.email-validation-error {
+    border: 2px solid #ff0000 !important;
+}

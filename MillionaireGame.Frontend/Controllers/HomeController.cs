@@ -1,16 +1,9 @@
-﻿using MillionaireGame.Repositories.Concrete;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Hosting;
+﻿using System.Linq;
 using System.Web.Mvc;
-using MillionaireGame.Entities;
+using MillionaireGame.BusinessLogic.Abstract;
 using MillionaireGame.Repositories.Abstract;
 using MillionaireGame.Frontend.Models;
 using Newtonsoft.Json;
-using MillionaireGame.BusinessLogic.Abstraction;
-using MillionaireGame.BusinessLogic.Concrete;
 
 namespace MillionaireGame.Frontend.Controllers
 {
@@ -20,7 +13,7 @@ namespace MillionaireGame.Frontend.Controllers
         private readonly IGameStepRepository _gameStepRepository;
         private readonly IGameHint _gameHint;
 
-        public HomeController(IQuestionRepository questionRepo, IGameStepRepository gameStepRepo, 
+        public HomeController(IQuestionRepository questionRepo, IGameStepRepository gameStepRepo,
             IGameHint gameHint)
         {
             _questionRepository = questionRepo;
@@ -45,6 +38,7 @@ namespace MillionaireGame.Frontend.Controllers
                 Question = _questionRepository.Questions.ElementAt(0),
                 GameSteps = _gameStepRepository.GameSteps.OrderByDescending(i => i.Reward)
             };
+
             return View(game);
         }
 
@@ -89,6 +83,14 @@ namespace MillionaireGame.Frontend.Controllers
             var hintQuestion = _gameHint.FiftyPercentsHint(question);
             string strQuestion = JsonConvert.SerializeObject(hintQuestion);
             return Json(strQuestion);
+        }
+
+        [HttpPost]
+        public JsonResult FriendCallHint(int questionIndex, string recipient)
+        {
+            var question = _questionRepository.Questions.ElementAt(questionIndex);
+            _gameHint.FriendCallHint(question, (string)Session["name"], recipient);
+            return Json(recipient);
         }
     }
 }

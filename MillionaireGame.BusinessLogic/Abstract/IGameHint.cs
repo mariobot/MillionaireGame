@@ -1,11 +1,6 @@
 ﻿using MillionaireGame.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace MillionaireGame.BusinessLogic.Abstraction
+namespace MillionaireGame.BusinessLogic.Abstract
 {
     public interface IGameHint
     {
@@ -16,6 +11,14 @@ namespace MillionaireGame.BusinessLogic.Abstraction
         /// <returns>Question that contains only two titled answers, other should be empty string</returns>
         Question FiftyPercentsHint(Question question);
 
-        //TODO: Add friend call hint
+        /// <summary>
+        /// Implements friend call hint
+        /// </summary>
+        /// <param name="question">Initial question</param>
+        /// <param name="playerName">Current player name</param>
+        /// <param name="recipient">Email, phone or other information to contact with friend</param>
+        void FriendCallHint(Question question, string playerName, string recipient);
+
+        // TODO: Add hall help hint
     }
 }
