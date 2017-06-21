@@ -26,42 +26,42 @@
 </div>
 
 <div class="row game-page">
-    <div class="col-md-2">
-        <input type="button" id="fiftyHint" class="btn btn-hints col-md-offset-6" />
-        <input type="button" id="audienceHint" class="btn btn-hints col-md-offset-6" />
-        <input type="button" id="friendCallHint" class="btn btn-hints col-md-offset-6" />
-    </div>
-    <div class="col-md-8">
-        <div class="img-responsive">
-            <img src="~/Content/Images/millionaire-logo.jpg" alt="Millionair logo" class="img-background col-md-4 col-md-offset-2 col-sm-4 col-sm-offset-2" />
+    <div class="row">
+        <div class="col-md-2 col-md-offset-3 col-sm-2 col-sm-offset-1 col-xs-3">
+            <input type="button" id="fiftyHint" class="btn btn-hints" />
+            <input type="button" id="audienceHint" class="btn btn-hints" />
+            <input type="button" id="friendCallHint" class="btn btn-hints" />
         </div>
-        <div class="col-md-2 col-sm-2">
-            <ul class="steps-list">
-                @foreach (GameStep step in Model.GameSteps)
-                {
-                    <li id="@step.Step">@step.Reward</li>
-                }
-            </ul>
-        </div>
-        <div id="question">
-            <div class="row">
-                <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 question-block">
-                    <p id="questionP">@Model.Question.Title</p>
-                </div>
+        <div class="col-md-6 col-sm-6 col-xs-6">
+            <div class="col-md-2 col-md-offset-5 col-sm-2 col-sm-offset-9">
+                <ul class="steps-list">
+                    @foreach (GameStep step in Model.GameSteps)
+                    {
+                        <li id="@step.Step">@step.Reward</li>
+                    }
+                </ul>
             </div>
-            <input class="btn-block col-md-3 col-md-offset-1 col-sm-3 col-sm-offset-1 btn-answer"
+
+        </div>
+    </div>
+    <div class="row">
+        <div id="question" class="col-md-9 col-md-offset-2">
+            <div class="col-lg-9 col-md-10 col-sm-10 col-sm-offset-1 question-block">
+                <p id="questionP">@Model.Question.Title</p>
+            </div>
+            <input class="btn-block col-sm-3 col-sm-offset-1 btn-answer"
                    id="aBtn"
                    type="button"
                    value="@string.Format("A. {0}", Model.Question.Answers.ElementAt(0).Title)" />
-            <input class="btn-block col-md-3 col-md-offset-1 col-sm-3 col-sm-offset-1 btn-answer"
+            <input class="btn-block col-sm-3 col-sm-offset-1 btn-answer"
                    id="bBtn"
                    type="button"
                    value="@string.Format("B. {0}", Model.Question.Answers.ElementAt(1).Title)" />
-            <input class="btn-block col-md-3 col-md-offset-1 col-sm-3 col-sm-offset-1 btn-answer"
+            <input class="btn-block col-sm-3 col-sm-offset-1 btn-answer"
                    id="cBtn"
                    type="button"
                    value="@string.Format("C. {0}", Model.Question.Answers.ElementAt(2).Title)" />
-            <input class="btn-block col-md-3 col-md-offset-1 col-sm-3 col-sm-offset-1 btn-answer"
+            <input class="btn-block col-sm-3 col-sm-offset-1 btn-answer"
                    id="dBtn"
                    type="button"
                    value="@string.Format("D. {0}", Model.Question.Answers.ElementAt(3).Title)" />
@@ -72,6 +72,6 @@
     window.questionIndex = @Model.QuestionIndex;
     $('#' + (questionIndex + 1)).addClass('step-selected');
 </script>
-@Scripts.Render("~/bundles/redirect");
+@Scripts.Render("~/bundles/redirect")
 @Scripts.Render("~/bundles/answer")
 
