@@ -1,12 +1,18 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+    background-color: #142048;
+    color: #fff;
 }
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
+    background-image: url('Images/millionaire-logo.jpg');
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: 550px, 450px, cover;
 }
 
 /* Set width on the form input elements since they're 100% wide by default */
@@ -18,10 +24,13 @@ textarea {
 
 .custom-jumbotron {
     margin-top: 20px;
+    color: #fff !important;
+    background-color: inherit !important;
 }
 
 #question {
     z-index: 3;
+    margin-top: 20px;
 }
 
 .btn-answer {
@@ -32,22 +41,36 @@ textarea {
     color: #fff;
     margin-top: 5px;
     margin-bottom: 15px;
+    /*margin-right: 2%;*/
     padding: 5px 5px 5px 15px;
     text-align: left;
 }
 
-    .btn-answer:hover {
-        background: #2252e8;
+@media (min-width: 992px){
+    .btn-answer {
+        margin-right: -2%;
     }
+}
+
+@media (min-width: 1200px){
+    .btn-answer {
+        margin-right: 2%;
+    }
+}
+
+
+.btn-answer:hover {
+    background: #2252e8;
+}
 
 .img-background {
     height: 350px;
     width: 450px;
 }
 
-.game-page {
+/*.game-page {
     background-color: #142048;
-}
+}*/
 
 .question-block {
     outline: none;
@@ -56,7 +79,7 @@ textarea {
     background: #020c2c;
     color: #fff;
     margin-bottom: 15px;
-    padding: 5px 5px 5px 15px;
+    padding: 5px;
     text-align: center;
     border: 2px solid #fff;
 }
@@ -69,12 +92,12 @@ textarea {
     margin-top: 15px;
 }
 
-    .steps-list li {
-        border-radius: 7px;
-        border-width: 1px;
-        border-color: #000;
-        padding-left: 10px;
-    }
+.steps-list li {
+    border-radius: 7px;
+    border-width: 1px;
+    border-color: #000;
+    padding-left: 10px;
+}
 
 .step-selected {
     background-color: #ff7b1e;
@@ -85,13 +108,13 @@ textarea {
     background-size: cover;
     outline: none;
     margin-top: 15px;
-    padding: 38px 48px;
+    padding: 38px 62px
 }
 
-    .btn-hints:hover {
-        border-radius: 10px;
-        /*border: 1px solid #fff;*/
-    }
+.btn-hints:hover {
+    border-radius: 10px;
+    /*border: 1px solid #fff;*/
+}
 
 #fiftyHint {
     background-image: url('Images/HintButtons/5050.png');
