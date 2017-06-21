@@ -1,8 +1,8 @@
-﻿$hintButton = $("#friendCallHint");
+﻿$friendCallHint = $("#friendCallHint");
 $hintWindow = $("#friendCallHintWindow");
 $emailField = $("#friendCallHintEmail");
 
-$hintButton.on("click",
+$friendCallHint.on("click",
     () => {
         $hintWindow.modal("show");
     });
@@ -19,7 +19,7 @@ $("#friendCallHintBtnSend").on("click",
             $emailField.addClass("email-validation-error");
             $emailField.focus();
         } else {
-            $hintButton.prop("disabled", true);
+            $friendCallHint.prop("disabled", true);
             $.post("/Home/FriendCallHint",
                 {
                     questionIndex: window.questionIndex,

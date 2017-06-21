@@ -1,8 +1,8 @@
-﻿$hintButton = $("#audienceHint");
+﻿$audienceHint = $("#audienceHint");
 
-$hintButton.on("click",
+$audienceHint.on("click",
     () => {
-        $hintButton.prop("disabled", true);
+        $audienceHint.prop("disabled", true);
         $.post("/Home/AudienceHint",
             {
                 questionIndex: window.questionIndex
