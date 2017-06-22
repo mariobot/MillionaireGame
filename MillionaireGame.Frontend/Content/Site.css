@@ -143,3 +143,8 @@ textarea {
 .email-validation-error {
     border: 2px solid #ff0000 !important;
 }
+
+
+.modal-text {
+    color: #000;
+}
