@@ -50,12 +50,12 @@ namespace MillionaireGame.Frontend.Controllers
             bool endOfGame = true;
             if (currentQuestion.IsAnswerCorrect(answer.PlayerAnswer))
             {
+                endOfGame = false;
                 if (index == 14)
                 {
-                    //return winning page here
-                    return View("Win");
+                    endOfGame = true; //assign true if the last answer was correct
+                    index--; //uses to avoid exception :D can be deleted when more questions will be added
                 }
-                endOfGame = false;
             }
             int newIndex = index + 1;
             var game = new GameViewModel
@@ -69,10 +69,13 @@ namespace MillionaireGame.Frontend.Controllers
             return Json(response);
         }
 
-        //might be improoved. Its bad idea to use get for this thing i guess :)
-        [HttpGet]
+        // !!!!ATTENTION!!!! behaviour of game result was changed  
+        [HttpPost]
         public ActionResult GameResult(int step) //step need for win sum of money
         {
+            //method that implements unburned sum result sould be runned here
+            //and the step should be passed to the following ViewBag property
+            ViewBag.Step = step;
             return View();
         }
 

@@ -8,7 +8,7 @@ $btns.on('click', (e) => {
         (data) => {
             data = JSON.parse(data);
             if (data.EndOfGame) {
-                $.redirect('/Home/GameResult', {'step': data.QuestionIndex}, 'GET', '', true);
+                $.redirect('/Home/GameResult', {'step': data.QuestionIndex}, 'POST', '', true);
             }
             window.questionIndex = data.QuestionIndex;
 
