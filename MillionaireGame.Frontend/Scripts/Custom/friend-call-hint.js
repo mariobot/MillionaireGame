@@ -1,31 +1,31 @@
-﻿$friendCallHint = $("#friendCallHint");
-$hintWindow = $("#friendCallHintWindow");
-$emailField = $("#friendCallHintEmail");
+﻿$friendCallHint = $('#friendCallHint');
+$hintWindow = $('#friendCallHintWindow');
+$emailField = $('#friendCallHintEmail');
 
-$friendCallHint.on("click",
+$friendCallHint.on('click',
     () => {
-        $hintWindow.modal("show");
+        $hintWindow.modal('show');
     });
 
-$("#friendCallHintBtnClose").on("click",
+$('#friendCallHintBtnClose').on('click',
     () => {
-        $hintWindow.modal("hide");
+        $hintWindow.modal('hide');
     });
 
-$("#friendCallHintBtnSend").on("click",
+$('#friendCallHintBtnSend').on('click',
     () => {
         var email = $emailField.val();
-        if (!isEmail(email)) {
-            $emailField.addClass("email-validation-error");
-            $emailField.focus();
-        } else {
-            $friendCallHint.prop("disabled", true);
-            $.post("/Home/FriendCallHint",
+        if (isEmail(email)) {
+            $friendCallHint.prop('disabled', true);
+            $.post('/Home/FriendCallHint',
                 {
                     questionIndex: window.questionIndex,
                     recipient: email
                 });
-            $hintWindow.modal("hide");
+            $hintWindow.modal('hide');
+        } else {
+            $emailField.addClass('email-validation-error');
+            $emailField.focus();
         }
     });
 

@@ -1,8 +1,7 @@
-﻿
+﻿$fiftyHint = $('#fiftyHint');
 
-$btn = $('#fiftyHint');
-$btn.on('click', (e) => {
-    $btn.prop('disabled', true);
+$fiftyHint.on('click', (e) => {
+    $fiftyHint.prop('disabled', true);
     //request
     $.post('/Home/FiftyPercentsHint', { questionIndex: window.questionIndex },
         (data) => {
@@ -14,8 +13,8 @@ $btn.on('click', (e) => {
 });
 
 function refreshAnswers (question) {
-    var nextChar = 'A';
-    $('.btn-answer').each((i, obj) => {
+    let nextChar = 'A';
+    $btns.each((i, obj) => {
         //disables excluded answers
         if (!question.Answers[i].Title) {
             obj.disabled = true;
