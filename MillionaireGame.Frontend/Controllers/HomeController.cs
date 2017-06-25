@@ -4,9 +4,11 @@ using MillionaireGame.BusinessLogic.Abstract;
 using MillionaireGame.Repositories.Abstract;
 using MillionaireGame.Frontend.Models;
 using Newtonsoft.Json;
+using MillionaireGame.Frontend.Filters;
 
 namespace MillionaireGame.Frontend.Controllers
 {
+    [ExceptionLoggerAttribute]
     public class HomeController : Controller
     {
         private readonly IQuestionRepository _questionRepository;
@@ -30,6 +32,9 @@ namespace MillionaireGame.Frontend.Controllers
         [HttpPost]
         public ActionResult Game(string PlayerName)
         {
+            //test
+            throw new System.Exception();
+            //test
             Session["name"] = PlayerName;
             var game = new GameViewModel
             {

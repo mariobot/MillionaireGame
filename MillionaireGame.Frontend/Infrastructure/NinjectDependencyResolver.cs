@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Web.Hosting;
 using System.Web.Mvc;
-using MillionaireGame.BusinessLogic;
 using MillionaireGame.BusinessLogic.Abstract;
 using MillionaireGame.Repositories.Abstract;
 using MillionaireGame.Repositories.Concrete;
 using Ninject;
 using MillionaireGame.BusinessLogic.Concrete;
+using Ninject.Web.Mvc.FilterBindingSyntax;
+using MillionaireGame.Frontend.Filters;
+using MillionaireGame.Entities;
 // ReSharper disable AssignNullToNotNullAttribute
 
 namespace MillionaireGame.Frontend.Infrastructure
@@ -42,6 +44,11 @@ namespace MillionaireGame.Frontend.Infrastructure
             _kernel.Bind<IEncryptionService>().To<AESEncryptionService>().WithConstructorArgument("encryptionKey", "abc123");
             _kernel.Bind<IMessageService>().To<EmailClient>().WithConstructorArgument("encryptionService", _kernel.Get<IEncryptionService>());
             _kernel.Bind<IGameHint>().To<GameHint>().WithConstructorArgument("messageService", _kernel.Get<IMessageService>());
+            _kernel.Bind<IExceptionDetailRepository>().To<DbExceptionDetailRepository>().WithConstructorArgument("context",
+                new LoggerContext());
+            _kernel.BindFilter<ExceptionLoggerFilter>(FilterScope.Controller, 0)
+                .WhenControllerHas<ExceptionLoggerAttribute>()
+                .WithConstructorArgument("repository", _kernel.Get<IExceptionDetailRepository>()); //logger injection
         }
     }
 }
