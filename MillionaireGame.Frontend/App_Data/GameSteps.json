@@ -17,7 +17,8 @@
 	},
 	{
 		"step" : 5,
-		"reward" : 1000
+    "reward": 1000,
+    "saveReward" : true 
 	},
 	{
 		"step" : 6,
@@ -37,7 +38,8 @@
 	},
 	{
 		"step" : 10,
-		"reward" : 32000
+    "reward": 32000,
+    "saveReward" : true 
 	},
 	{
 		"step" : 11,
@@ -57,6 +59,7 @@
 	},
 	{
 		"step" : 15,
-		"reward" : 1000000
+    "reward": 1000000,
+    "saveReward" : true 
 	}
 ]

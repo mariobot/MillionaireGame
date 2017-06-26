@@ -5,10 +5,13 @@
 @* demo version of game result page) *@
 @if (ViewBag.Step == 14)
 {
-    <h2>Gratz, u win</h2>
+    <h2>Gratz, u win 1 000 000 !!!</h2>
+}
+else if (ViewBag.Step >= 6 && ViewBag.Step < 14)
+{
+    <h2>Not bad, u win @ViewBag.Reward</h2>
 }
 else
 {
-    <h2>You loose</h2>
+    <h2>Sorry, u lose</h2>
 }
-

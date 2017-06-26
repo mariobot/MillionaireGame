@@ -37,7 +37,14 @@
                 <ul class="steps-list">
                     @foreach (GameStep step in Model.GameSteps)
                     {
-                        <li id="@step.Step">@step.Reward</li>
+                        if (step.SaveReward)
+                        {
+                            <li id="@step.Step" class="save-reward">@step.Reward</li>
+                        }
+                        else
+                        {
+                            <li id="@step.Step">@step.Reward</li>
+                        }
                     }
                 </ul>
             </div>

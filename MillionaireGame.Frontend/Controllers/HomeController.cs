@@ -75,7 +75,20 @@ namespace MillionaireGame.Frontend.Controllers
         {
             //method that implements unburned sum result sould be runned here
             //and the step should be passed to the following ViewBag property
+
+            var reward = 0;
+
+            if (step >= 6 && step < 11)
+            {
+                reward = _gameStepRepository.GameSteps.ElementAt(4).Reward;
+            }
+            else if (step >= 11)
+            {
+                reward = _gameStepRepository.GameSteps.ElementAt(9).Reward;
+            }
+
             ViewBag.Step = step;
+            ViewBag.Reward = reward;
             return View();
         }
 
