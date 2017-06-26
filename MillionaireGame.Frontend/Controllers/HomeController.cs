@@ -32,10 +32,6 @@ namespace MillionaireGame.Frontend.Controllers
         [HttpPost]
         public ActionResult Game(string PlayerName)
         {
-            //test
-            throw new System.Exception();
-            //test
-            Session["name"] = PlayerName;
             var game = new GameViewModel
             {
                 EndOfGame = false,
