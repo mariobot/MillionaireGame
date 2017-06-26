@@ -99,6 +99,10 @@ textarea {
     padding-left: 10px;
 }
 
+.save-reward {
+    color: #ff1493;
+}
+
 .step-selected {
     background-color: #ff7b1e;
     width: 70px;
