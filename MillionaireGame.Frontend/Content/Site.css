@@ -41,7 +41,6 @@ textarea {
     color: #fff;
     margin-top: 5px;
     margin-bottom: 15px;
-    /*margin-right: 2%;*/
     padding: 5px 5px 5px 15px;
     text-align: left;
 }
@@ -58,7 +57,6 @@ textarea {
     }
 }
 
-
 .btn-answer:hover {
     background: #2252e8;
 }
@@ -67,10 +65,6 @@ textarea {
     height: 350px;
     width: 450px;
 }
-
-/*.game-page {
-    background-color: #142048;
-}*/
 
 .question-block {
     outline: none;
@@ -117,37 +111,35 @@ textarea {
 
 .btn-hints:hover {
     border-radius: 10px;
-    /*border: 1px solid #fff;*/
 }
 
 #fiftyHint {
     background-image: url('Images/HintButtons/5050.png');
 }
 
-    #fiftyHint:hover {
-        background-image: url('Images/HintButtons/5050Orange.png');
-    }
+#fiftyHint:hover {
+    background-image: url('Images/HintButtons/5050Orange.png');
+}
 
 #audienceHint {
     background-image: url('Images/HintButtons/audience.png');
 }
 
-    #audienceHint:hover {
-        background-image: url('Images/HintButtons/audienceOrange.png');
-    }
+#audienceHint:hover {
+    background-image: url('Images/HintButtons/audienceOrange.png');
+}
 
 #friendCallHint {
     background-image: url('Images/HintButtons/phoneAFriend.png');
 }
 
-    #friendCallHint:hover {
-        background-image: url('Images/HintButtons/phoneAFriendOrange.png');
-    }
+#friendCallHint:hover {
+    background-image: url('Images/HintButtons/phoneAFriendOrange.png');
+}
 
 .email-validation-error {
     border: 2px solid #ff0000 !important;
 }
-
 
 .modal-text {
     color: #000;

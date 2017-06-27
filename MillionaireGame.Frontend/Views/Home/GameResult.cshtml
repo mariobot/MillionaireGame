@@ -5,13 +5,22 @@
 @* demo version of game result page) *@
 @if (ViewBag.Step == 14)
 {
-    <h2>Gratz, u win 1 000 000 !!!</h2>
+    <h2>Вітання! Ви виграли 1 000 000 !!!</h2>
+    <div class="col-sm-offset-3">
+        <img src="~/Content/Images/ResultGifs/win.gif" />
+    </div>
 }
 else if (ViewBag.Step >= 6 && ViewBag.Step < 14)
 {
-    <h2>Not bad, u win @ViewBag.Reward</h2>
+    <h2>Непогано, ви виграли @ViewBag.Reward</h2>
+    <div class="">
+        <img src="~/Content/Images/ResultGifs/somewin.gif" />
+    </div>
 }
 else
 {
-    <h2>Sorry, u lose</h2>
+    <h2>Вибачте, але ви програли. Спробуйте ще раз.</h2>
+    <div class="col-sm-offset-3">
+        <img src="~/Content/Images/ResultGifs/loose.gif" />
+    </div>
 }
