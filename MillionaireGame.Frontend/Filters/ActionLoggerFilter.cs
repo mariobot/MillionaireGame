@@ -31,10 +31,10 @@ namespace MillionaireGame.Frontend.Filters
                 return;
             }
             questionStatistic.QuestionCounter++;
-            var answerArray = questionStatistic.Question.Answers.ToArray();
-            var answerStatistic = questionStatistic.AnswerStatistics.
-                ElementAt(Array.IndexOf(answerArray, answerArray
-                .Single(a => a.Title == answer.PlayerAnswer)));
+            int answerId = questionStatistic.Question.Answers
+                .First(a => a.Title == answer.PlayerAnswer).Id;
+            var answerStatistic = questionStatistic.AnswerStatistics
+                .First(a => a.Id == answerId);
             answerStatistic.AnswerCounter++;
             _questionStatisticRepository.SaveChanges();
         }
