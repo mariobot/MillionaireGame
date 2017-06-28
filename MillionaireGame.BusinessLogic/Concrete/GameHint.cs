@@ -105,5 +105,28 @@ namespace MillionaireGame.BusinessLogic.Concrete
 
             return result;
         }
+
+        public Question FiftyPercentsHintWithStatistic(Question question)
+        {
+            var answerStatistic = _questionStatisticRepository.Find(question.Id).AnswerStatistics;
+            var maxId = answerStatistic.Max(x => x.AnswerCounter);
+
+            var rnd = new Random();
+            var outIndex = rnd.Next(0, 3);
+            for (int i = 0; i < 2; i++)
+            {
+                var answer = question.Answers.ElementAt(outIndex);
+                if (answer.Correct || string.IsNullOrEmpty(answer.Title))
+                {
+                    i--;
+                    outIndex = rnd.Next(0, 3);
+                }
+                else if (answer.Id != maxId)
+                {
+                    answer.Title = string.Empty;
+                }
+            }
+            return question;
+        }
     }
 }

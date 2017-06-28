@@ -33,7 +33,7 @@ namespace MillionaireGame.UnitTests
                         new Answer{Title = "a4", Correct = true},
                     }
             };
-            var gameHint = new GameHint(_messageService.Object);
+            var gameHint = new GameHint(_messageService.Object, null);
 
             var newQuestion = gameHint.FiftyPercentsHint(question);
 

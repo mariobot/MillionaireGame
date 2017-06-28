@@ -28,5 +28,7 @@ namespace MillionaireGame.BusinessLogic.Abstract
         string AudienceHint(Question question);
 
         ICollection<AudienceHintResult> AudienceHintWithStatistic(Question question);
+
+        Question FiftyPercentsHintWithStatistic(Question question);
     }
 }
