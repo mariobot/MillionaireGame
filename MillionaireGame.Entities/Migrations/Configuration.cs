@@ -1,22 +1,19 @@
+using System;
+using System.Collections.Generic;
+using System.Data.Entity.Migrations;
+using System.IO;
+using Newtonsoft.Json;
+
 namespace MillionaireGame.Entities.Migrations
 {
-    using Newtonsoft.Json;
-    using System;
-    using System.Collections.Generic;
-    using System.Configuration;
-    using System.Data.Entity;
-    using System.Data.Entity.Migrations;
-    using System.IO;
-    using System.Linq;
-
-    internal sealed class Configuration : DbMigrationsConfiguration<MillionaireGame.Entities.LoggerContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<LoggerContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(MillionaireGame.Entities.LoggerContext context)
+        protected override void Seed(LoggerContext context)
         {
             //  This method will be called after migrating to the latest version.
 
@@ -30,8 +27,8 @@ namespace MillionaireGame.Entities.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
-            string text;                          //ConfigurationManager.AppSettings["QuestionsPath"] not working :(
-            using (var reader = new StreamReader(@"D:\EpamLessons\Lesson_MVC_1\MillionaireGame\MillionaireGame.Frontend\App_Data\Questions.json"))
+            string text;                   
+            using (var reader = new StreamReader(Path.Combine(AppDomain.CurrentDomain.GetData("DataDirectory").ToString(), "Questions.json")))
             {
                 text = reader.ReadToEnd();
             }
@@ -41,7 +38,7 @@ namespace MillionaireGame.Entities.Migrations
             {
                 var answerStatistics = new List<AnswerStatistic>();
                 
-                var questionStatistic = new QuestionStatistic()
+                var questionStatistic = new QuestionStatistic
                 {
                     QuestionCounter = 0,
                     AnswerStatistics = answerStatistics
@@ -53,7 +50,7 @@ namespace MillionaireGame.Entities.Migrations
                 
                 item.QuestionStatistic = questionStatistic;
                 context.Questions.AddOrUpdate(item);
-            };
+            }
             context.SaveChanges();
         }
     }

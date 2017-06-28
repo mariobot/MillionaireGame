@@ -6,6 +6,7 @@ namespace MillionaireGame.Entities
     {
         public LoggerContext(): base("LoggerConnection")
         {
+         //   Database.Connection.ConnectionString = 
         }
 
         public DbSet<ExceptionDetail> ExceptionDetails { get; set; }
