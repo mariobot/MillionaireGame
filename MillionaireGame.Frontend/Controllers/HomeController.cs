@@ -44,8 +44,10 @@ namespace MillionaireGame.Frontend.Controllers
         }
 
         [HttpPost]
+        [ActionLogger]
         public ActionResult PlayerGame(PlayerAnswerViewModel answer)
         {
+            ViewBag.Answer = answer;
             int index = answer.QuestionIndex;
             var currentQuestion = _questionRepository.Questions.ElementAt(index); //see lower
             bool endOfGame = true;
