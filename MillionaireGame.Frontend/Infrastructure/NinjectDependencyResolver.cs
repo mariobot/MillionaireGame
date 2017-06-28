@@ -37,8 +37,8 @@ namespace MillionaireGame.Frontend.Infrastructure
 
         private void AddBindings()
         {
-            _kernel.Bind<IQuestionRepository>().To<JsonQuestionRepository>()
-                .WithConstructorArgument("filename", HostingEnvironment.MapPath(ConfigurationManager.AppSettings["QuestionsPath"]));
+            _kernel.Bind<IQuestionRepository>().To<DbQuestionRepository>()
+                .WithConstructorArgument("context", new LoggerContext());
             _kernel.Bind<IGameStepRepository>().To<JsonGameStepRepository>()
                 .WithConstructorArgument("filename", HostingEnvironment.MapPath(ConfigurationManager.AppSettings["GameStepsPath"]));
             _kernel.Bind<IEncryptionService>().To<AESEncryptionService>().WithConstructorArgument("encryptionKey", "abc123");

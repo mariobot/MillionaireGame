@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Newtonsoft.Json;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MillionaireGame.Entities
@@ -11,6 +12,7 @@ namespace MillionaireGame.Entities
         public bool Correct { get; set; }
         [ForeignKey("Question")]
         public int QuestionId { get; set; }
+        [JsonIgnore]
         public virtual Question Question { get; set; }
     }
 }
