@@ -46,9 +46,14 @@ namespace MillionaireGame.Frontend.Infrastructure
             _kernel.Bind<IGameHint>().To<GameHint>().WithConstructorArgument("messageService", _kernel.Get<IMessageService>());
             _kernel.Bind<IExceptionDetailRepository>().To<DbExceptionDetailRepository>().WithConstructorArgument("context",
                 new LoggerContext());
+            _kernel.Bind<IQuestionStatisticRepository>().To<DbQuestionStatisticRepository>()
+                .WithConstructorArgument("context", new LoggerContext());
             _kernel.BindFilter<ExceptionLoggerFilter>(FilterScope.Controller, 0)
                 .WhenControllerHas<ExceptionLoggerAttribute>()
                 .WithConstructorArgument("repository", _kernel.Get<IExceptionDetailRepository>()); //logger injection
+            _kernel.BindFilter<ActionLoggerFilter>(FilterScope.Action, 0)
+                .WhenActionMethodHas<ActionLoggerAttribute>()
+                .WithConstructorArgument("repository", _kernel.Get<IQuestionStatisticRepository>());
         }
     }
 }
