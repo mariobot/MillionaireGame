@@ -1,4 +1,5 @@
-﻿using MillionaireGame.Entities;
+﻿using System.Collections.Generic;
+using MillionaireGame.Entities;
 
 namespace MillionaireGame.BusinessLogic.Abstract
 {
@@ -25,5 +26,7 @@ namespace MillionaireGame.BusinessLogic.Abstract
         /// <param name="question">Current question</param>
         /// <returns>Url with useful information</returns>
         string AudienceHint(Question question);
+
+        ICollection<AudienceHintResult> AudienceHintWithStatistic(Question question);
     }
 }

@@ -41,13 +41,18 @@ namespace MillionaireGame.Frontend.Infrastructure
                 .WithConstructorArgument("context", new LoggerContext());
             _kernel.Bind<IGameStepRepository>().To<JsonGameStepRepository>()
                 .WithConstructorArgument("filename", HostingEnvironment.MapPath(ConfigurationManager.AppSettings["GameStepsPath"]));
+
             _kernel.Bind<IEncryptionService>().To<AESEncryptionService>().WithConstructorArgument("encryptionKey", "abc123");
             _kernel.Bind<IMessageService>().To<EmailClient>().WithConstructorArgument("encryptionService", _kernel.Get<IEncryptionService>());
-            _kernel.Bind<IGameHint>().To<GameHint>().WithConstructorArgument("messageService", _kernel.Get<IMessageService>());
-            _kernel.Bind<IExceptionDetailRepository>().To<DbExceptionDetailRepository>().WithConstructorArgument("context",
-                new LoggerContext());
+
             _kernel.Bind<IQuestionStatisticRepository>().To<DbQuestionStatisticRepository>()
                 .WithConstructorArgument("context", new LoggerContext());
+            _kernel.Bind<IGameHint>().To<GameHint>().WithConstructorArgument("messageService", _kernel.Get<IMessageService>())
+                .WithConstructorArgument("questionStatisticRepository", _kernel.Get<IQuestionStatisticRepository>());
+
+            _kernel.Bind<IExceptionDetailRepository>().To<DbExceptionDetailRepository>().WithConstructorArgument("context",
+                new LoggerContext());
+
             _kernel.BindFilter<ExceptionLoggerFilter>(FilterScope.Controller, 0)
                 .WhenControllerHas<ExceptionLoggerAttribute>()
                 .WithConstructorArgument("repository", _kernel.Get<IExceptionDetailRepository>()); //logger injection

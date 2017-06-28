@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="Answer.cs" />
     <Compile Include="AnswerStatistic.cs" />
+    <Compile Include="AudienceHintResult.cs" />
     <Compile Include="ExceptionDetail.cs" />
     <Compile Include="GameStep.cs" />
     <Compile Include="LoggerContext.cs" />

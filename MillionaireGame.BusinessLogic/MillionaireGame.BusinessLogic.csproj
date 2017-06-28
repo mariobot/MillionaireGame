@@ -75,6 +75,10 @@
       <Project>{FC5333F9-AC8A-4CBB-875F-56C2C47F1C51}</Project>
       <Name>MillionaireGame.Entities</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MillionaireGame.Repositories\MillionaireGame.Repositories.csproj">
+      <Project>{8C233BBD-1498-4C74-BE99-567193A0A3AD}</Project>
+      <Name>MillionaireGame.Repositories</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

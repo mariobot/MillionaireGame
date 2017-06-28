@@ -8,7 +8,7 @@ using MillionaireGame.Frontend.Filters;
 
 namespace MillionaireGame.Frontend.Controllers
 {
-    [ExceptionLoggerAttribute]
+    [ExceptionLogger]
     public class HomeController : Controller
     {
         private readonly IQuestionRepository _questionRepository;
@@ -119,6 +119,15 @@ namespace MillionaireGame.Frontend.Controllers
             var url = _gameHint.AudienceHint(question);
             var result = JsonConvert.SerializeObject(url);
             return Json(result);
+        }
+
+        [HttpPost]
+        public JsonResult AudienceHintWithStatistic(int questionIndex)
+        {
+            var question = _questionRepository.Questions.ElementAt(questionIndex);
+            var audienceStatistics = _gameHint.AudienceHintWithStatistic(question);
+            var strAudienceStatistics = JsonConvert.SerializeObject(audienceStatistics);
+            return Json(strAudienceStatistics);
         }
     }
 }

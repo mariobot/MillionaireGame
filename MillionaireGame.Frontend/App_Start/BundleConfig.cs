@@ -34,7 +34,8 @@ namespace MillionaireGame.Frontend.App_Start
                     "~/Scripts/Custom/user-answer.js",
                     "~/Scripts/Custom/fifty-percents-hint.js",
                     "~/Scripts/Custom/friend-call-hint.js",
-                    "~/Scripts/Custom/audience-hint.js"));
+                    "~/Scripts/Custom/audience-hint.js",
+                    "~/Scripts/Custom/audience-hint-with-statistics.js"));
         }
     }
 }
