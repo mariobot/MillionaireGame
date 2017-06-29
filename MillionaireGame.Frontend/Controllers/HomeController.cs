@@ -5,6 +5,7 @@ using MillionaireGame.Repositories.Abstract;
 using MillionaireGame.Frontend.Models;
 using Newtonsoft.Json;
 using MillionaireGame.Frontend.Filters;
+using MillionaireGame.Entities;
 
 namespace MillionaireGame.Frontend.Controllers
 {
@@ -98,7 +99,7 @@ namespace MillionaireGame.Frontend.Controllers
         [HttpPost]
         public JsonResult FiftyPercentsHint(int questionIndex)
         {
-            var question = _questionRepository.Questions.ElementAt(questionIndex);
+            var question = _questionRepository.Questions.ElementAt(questionIndex).Clone() as Question;
             var hintQuestion = _gameHint.FiftyPercentsHint(question);
             string strQuestion = JsonConvert.SerializeObject(hintQuestion);
             return Json(strQuestion);
