@@ -55,18 +55,24 @@ namespace MillionaireGame.Frontend.Controllers
             if (currentQuestion.IsAnswerCorrect(answer.PlayerAnswer))
             {
                 endOfGame = false;
+            }
+            else
+            {
                 if (index == 14)
                 {
-                    endOfGame = true; //assign true if the last answer was correct
-                    index--; //uses to avoid exception :D can be deleted when more questions will be added
+                    index--;
                 }
+            }
+            if (index == 14)
+            {
+                endOfGame = true; //assign true if the last answer was correct
             }
             int newIndex = index + 1;
             var game = new GameViewModel
             {
                 EndOfGame = endOfGame,
                 QuestionIndex = newIndex,                              //uncomment when all quests will be able
-                Question = _questionRepository.Questions.ElementAt(newIndex), //ElementAt(newIndex)  
+                Question = newIndex == 15 ? null : _questionRepository.Questions.ElementAt(newIndex), //ElementAt(newIndex)  
                 GameSteps = null
             };
             string response = JsonConvert.SerializeObject(game);
