@@ -41,6 +41,8 @@ namespace MillionaireGame.Frontend.Infrastructure
                 .WithConstructorArgument("context", new LoggerContext());
             _kernel.Bind<IGameStepRepository>().To<JsonGameStepRepository>()
                 .WithConstructorArgument("filename", HostingEnvironment.MapPath(ConfigurationManager.AppSettings["GameStepsPath"]));
+            _kernel.Bind<IPlayerStatisticsReporitory>().To<DbPlayerStatisticsRepository>()
+                .WithConstructorArgument("context", new LoggerContext());
 
             _kernel.Bind<IEncryptionService>().To<AESEncryptionService>().WithConstructorArgument("encryptionKey", "abc123");
             _kernel.Bind<IMessageService>().To<EmailClient>().WithConstructorArgument("encryptionService", _kernel.Get<IEncryptionService>());

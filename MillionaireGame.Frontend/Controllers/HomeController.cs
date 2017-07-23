@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Web.Mvc;
 using MillionaireGame.BusinessLogic.Abstract;
 using MillionaireGame.Repositories.Abstract;
@@ -14,13 +15,15 @@ namespace MillionaireGame.Frontend.Controllers
     {
         private readonly IQuestionRepository _questionRepository;
         private readonly IGameStepRepository _gameStepRepository;
+        private readonly IPlayerStatisticsReporitory _playerStatisticsReporitory;
         private readonly IGameHint _gameHint;
 
         public HomeController(IQuestionRepository questionRepo, IGameStepRepository gameStepRepo,
-            IGameHint gameHint)
+           IPlayerStatisticsReporitory statisticsRepo, IGameHint gameHint)
         {
             _questionRepository = questionRepo;
             _gameStepRepository = gameStepRepo;
+            _playerStatisticsReporitory = statisticsRepo;
             _gameHint = gameHint;
         }
 
@@ -31,8 +34,10 @@ namespace MillionaireGame.Frontend.Controllers
         }
 
         [HttpPost]
-        public ActionResult Game(string PlayerName)
+        public ActionResult Game(string playerName)
         {
+            Session["name"] = playerName;
+
             var game = new GameViewModel
             {
                 EndOfGame = false,
@@ -92,13 +97,25 @@ namespace MillionaireGame.Frontend.Controllers
             {
                 reward = _gameStepRepository.GameSteps.ElementAt(4).Reward;
             }
-            else if (step >= 11)
+            else if (step >= 11 && step < 15)
             {
                 reward = _gameStepRepository.GameSteps.ElementAt(9).Reward;
             }
-
+            else if (step == 15)
+            {
+                reward = _gameStepRepository.GameSteps.ElementAt(14).Reward;
+            }
             ViewBag.Step = step;
             ViewBag.Reward = reward;
+
+            // save result statistics for current player
+            _playerStatisticsReporitory.Add(new PlayerStatistic
+            {
+                Name = Session["name"].ToString(),
+                Result = reward,
+                ResultDateTime = DateTime.Now
+            });
+
             return View();
         }
 
@@ -135,6 +152,12 @@ namespace MillionaireGame.Frontend.Controllers
             var audienceStatistics = _gameHint.AudienceHintWithStatistic(question);
             var strAudienceStatistics = JsonConvert.SerializeObject(audienceStatistics);
             return Json(strAudienceStatistics);
+        }
+
+        [HttpGet]
+        public ViewResult Results()
+        {
+            return View(_playerStatisticsReporitory.PlayerStatistics);
         }
     }
 }

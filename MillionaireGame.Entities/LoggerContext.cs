@@ -14,5 +14,6 @@ namespace MillionaireGame.Entities
         public DbSet<Answer> Answers { get; set; }
         public DbSet<QuestionStatistic> QuestionStatistics { get; set; }
         public DbSet<AnswerStatistic> AnswerStatistics { get; set; }
+        public DbSet<PlayerStatistic> PlayerStatistics { get; set; }
     }
 }
