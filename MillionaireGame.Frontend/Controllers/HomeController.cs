@@ -88,7 +88,7 @@ namespace MillionaireGame.Frontend.Controllers
         [HttpPost]
         public ActionResult GameResult(int step) //step need for win sum of money
         {
-            //method that implements unburned sum result sould be runned here
+            //method that implements unburned sum result should be ran here
             //and the step should be passed to the following ViewBag property
 
             var reward = 0;
