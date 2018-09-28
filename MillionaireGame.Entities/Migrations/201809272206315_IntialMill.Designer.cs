@@ -7,13 +7,13 @@ namespace MillionaireGame.Entities.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class AddedPlayerStatistics : IMigrationMetadata
+    public sealed partial class IntialMill : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddedPlayerStatistics));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(IntialMill));
         
         string IMigrationMetadata.Id
         {
-            get { return "201707231601376_Added-Player-Statistics"; }
+            get { return "201809272206315_IntialMill"; }
         }
         
         string IMigrationMetadata.Source

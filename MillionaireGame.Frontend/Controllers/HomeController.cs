@@ -44,6 +44,8 @@ namespace MillionaireGame.Frontend.Controllers
                 QuestionIndex = 0,
                 Question = _questionRepository.Questions.ElementAt(0),
                 GameSteps = _gameStepRepository.GameSteps.OrderByDescending(i => i.Reward)
+                //Question = _questionRepository.Questions.First(),
+                //GameSteps = _gameStepRepository.GameSteps.OrderByDescending(i => i.Reward)
             };
 
             return View(game);

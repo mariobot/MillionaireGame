@@ -3,7 +3,7 @@ namespace MillionaireGame.Entities.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Initial : DbMigration
+    public partial class IntialMill : DbMigration
     {
         public override void Up()
         {
@@ -65,6 +65,17 @@ namespace MillionaireGame.Entities.Migrations
                     })
                 .PrimaryKey(t => t.Id);
             
+            CreateTable(
+                "dbo.PlayerStatistics",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Name = c.String(),
+                        Result = c.Int(nullable: false),
+                        ResultDateTime = c.DateTime(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id);
+            
         }
         
         public override void Down()
@@ -75,6 +86,7 @@ namespace MillionaireGame.Entities.Migrations
             DropIndex("dbo.AnswerStatistics", new[] { "QuestionStatisticId" });
             DropIndex("dbo.QuestionStatistics", new[] { "QuestionId" });
             DropIndex("dbo.Answers", new[] { "QuestionId" });
+            DropTable("dbo.PlayerStatistics");
             DropTable("dbo.ExceptionDetails");
             DropTable("dbo.AnswerStatistics");
             DropTable("dbo.QuestionStatistics");
